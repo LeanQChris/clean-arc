@@ -2,9 +2,6 @@ import React from 'react'
 import LoginForm from './components/form'
 import LoginInfo from './components/info'
 
-export const metadata = {
-    title: 'Najikai Admin Login',
-}
 export default function LoginPage() {
     return (
         <div className="container relative  h-screen  flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">

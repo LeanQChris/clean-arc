@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { apiLogin } from "../data/api";
+import { ILoginDTO } from "../data/interface";
 import showToast from "@/components/ui/toast/toaster";
 
 export default function useLogin() {
@@ -9,8 +10,8 @@ export default function useLogin() {
         initialValues: {
             email: "",
             password: "",
-        },
-        onSubmit: (values, { setErrors }) => {
+        } as ILoginDTO,
+        onSubmit: (values: ILoginDTO, { setErrors }) => {
             apiLogin(values)
                 .then(() => {
                     formik.resetForm();
