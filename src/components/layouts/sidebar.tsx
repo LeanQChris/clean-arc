@@ -7,7 +7,7 @@ import { GridIcon, PersonIcon } from "@radix-ui/react-icons";
 interface IsidebarItems {
     title: string;
     link: string;
-    icon: any;
+    icon: React.ReactNode;
 }
 const sidebarItems: IsidebarItems[] = [
     {
