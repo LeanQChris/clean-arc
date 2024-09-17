@@ -4,7 +4,7 @@ import FormInput from "@/components/ui/forms/input";
 
 const CategoryForm = () => {
     return (
-      <form className="flex flex-col gap-6">
+      <form className="flex flex-col gap-6 w-full">
         <div className="flex flex-col space-y-2">
           <FormInput
             placeholder="Hospitality"

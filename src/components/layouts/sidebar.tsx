@@ -11,9 +11,9 @@ interface IsidebarItems {
 }
 const sidebarItems: IsidebarItems[] = [
     {
-        title: "Users", link: "/adminld/dashboard", icon: <PersonIcon />
+        title: "Users", link: "/", icon: <PersonIcon />
     },
-    { title: "Categories", link: "/adminld/about", icon: <GridIcon /> },
+    { title: "Categories", link: "/category", icon: <GridIcon /> },
 ];
 
 const Sidebar = () => {

@@ -6,12 +6,28 @@ import { apiLogin } from "../data/api";
 import { ILoginDTO } from "../data/interface";
 import showToast from "@/components/ui/toast/toaster";
 import { useRouter } from "next/navigation";  // Call useRouter at the top level
-import { useState } from "react";
-import axios from "axios";
 
 export default function useLogin() {
     const router = useRouter();
-    const [loading, setLoading] = useState(false);
+    const onSubmit = async (values: ILoginDTO) => apiLogin(values).then((data) => {
+        showToast({
+            title: "Successfully Signed In",
+            description: "Welcome to the platform",
+        });
+        formik.resetForm();
+        router.push("/category");
+    }).catch((error) => {
+        const { username, password } = error.response?.data?.error || {};
+        if (username || password) {
+            formik.setErrors({ username, password });
+        } else {
+            const errorMessage = error.response?.data?.message || "An unexpected error occurred. Please try again.";
+            showToast({
+                title: "Oops",
+                description: errorMessage
+            });
+        }
+    });
 
     const formik = useFormik({
         validationSchema,
@@ -19,40 +35,10 @@ export default function useLogin() {
             username: "",
             password: "",
         } as ILoginDTO,
-        onSubmit: async (values: ILoginDTO, { setErrors }) => {
-            setLoading(true);
-            try {
-                const data = await apiLogin(values); // Ensure this function correctly handles redirects
-                formik.resetForm();
-                showToast({
-                    title: "Successfully Signed In",
-                    description: "Welcome to the platform",
-                });
-                router.push("/category");
-            } catch (error) {
-                if (axios.isAxiosError(error)) {
-                    const { username, password } = error.response?.data?.error || {};
-                    if (username || password) {
-                        setErrors({ username, password });
-                    } else {
-                        showToast({
-                            title: "Oops",
-                            description: error.response?.data?.message || "An unexpected error occurred. Please try again.",
-                        });
-                    }
-                } else {
-                    showToast({
-                        title: "Oops",
-                        description: "An unexpected error occurred. Please try again.",
-                    });
-                }
-            } finally {
-                setLoading(false);
-            }
-        },
+        onSubmit,
     });
 
-    return { formik, loading };
+    return { formik };
 }
 
 

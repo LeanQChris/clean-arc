@@ -5,7 +5,7 @@ export default function AdminLayout({ children }: PropsWithChildren) {
     return (
         <main className="flex">
             <Sidebar />
-            <section className='p-5'>
+            <section className='p-5 w-full'>
                 {children}
             </section >
         </main>
