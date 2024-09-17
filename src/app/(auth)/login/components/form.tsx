@@ -10,13 +10,13 @@ const LoginForm = () => {
     <form onSubmit={formik.handleSubmit} className="flex flex-col gap-6">
       <div className="flex flex-col space-y-2">
         <FormInput
-          placeholder="example@gmail.com"
-          type="email"
-          label="Email"
+          placeholder="Administrator"
+          type="text"
+          label="User Name"
           onChange={formik.handleChange}
-          value={formik.values.email}
-          name="email"
-          error={formik.errors.email}
+          value={formik.values.username}
+          name="username"
+          error={formik.errors.username}
         />
         <FormInput
           placeholder="************"
