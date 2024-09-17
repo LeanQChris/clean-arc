@@ -1,6 +1,6 @@
 import { ICategoryDTO } from "./interface";
 
-export const categories: ICategoryDTO[] = [
+export const fakeCategories: ICategoryDTO[] = [
     {
         id: "1",
         name: "Hospitality",

@@ -1,6 +1,5 @@
 import { create } from "zustand";
 import { ICategoryDTO } from "./data/interface";
-import { categories } from "./data/fake";
 
 type ICategoryStore = {
     categories: ICategoryDTO[],
@@ -13,7 +12,7 @@ type ICategoryStore = {
 }
 
 export const categoryStore = create<ICategoryStore>((set) => ({
-    categories: categories,
+    categories: [],
     setCataegories: (categories: ICategoryDTO[]) => set({ categories }),
     addCategory: (category: ICategoryDTO) => {
         set((state) => ({ categories: [...state.categories, category] }))

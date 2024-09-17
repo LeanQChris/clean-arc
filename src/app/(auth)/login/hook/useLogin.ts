@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";  // Call useRouter at the top level
 
 export default function useLogin() {
     const router = useRouter();
-    const onSubmit = async (values: ILoginDTO) => apiLogin(values).then((_) => {
+    const onSubmit = async (values: ILoginDTO) => apiLogin(values).then(() => {
         showToast({
             title: "Successfully Signed In",
             description: "Welcome to the platform",

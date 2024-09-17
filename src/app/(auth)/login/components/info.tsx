@@ -4,7 +4,7 @@ import { images } from '@/_common/constants/images'
 
 export default function LoginInfo() {
     return (
-        <div className="relative hidden h-full flex-col hero-gradient p-10 text-white dark:border-r lg:flex">
+        <div className="relative hidden h-full flex-col hero-gradient p-10 dark:border-r lg:flex">
             <Image
                 src={images.loginBg}
                 alt="Najikai"

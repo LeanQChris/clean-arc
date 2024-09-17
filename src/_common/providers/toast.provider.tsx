@@ -30,9 +30,9 @@ export function Toaster() {
         return (
           <Toast key={id} {...props} className="hero-gradient">
             <div className="grid gap-1">
-              {title && <ToastTitle className="text-white lexend font-bold text-xl">{title}</ToastTitle>}
+              {title && <ToastTitle className=" lexend font-bold text-xl">{title}</ToastTitle>}
               {description && (
-                <ToastDescription className="text-white lexend font-semibold text-lg">{description}</ToastDescription>
+                <ToastDescription className=" lexend font-semibold text-lg">{description}</ToastDescription>
               )}
             </div>
             {action}
