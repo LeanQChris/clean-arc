@@ -1,21 +1,25 @@
+"use client"
 import React from "react";
 import { Button } from "@/components/ui/button";
 import FormInput from "@/components/ui/forms/input";
+import useCategory from "../hook/useCategory";
 
 const CategoryForm = () => {
-    return (
-      <form className="flex flex-col gap-6 w-full">
-        <div className="flex flex-col space-y-2">
-          <FormInput
-            placeholder="Hospitality"
-            type="text"
-            label="Name"
-            name="name"
-          />
-        </div>
-        <Button>Save</Button>
-      </form>
-    );
-  }
-  
-  export default CategoryForm
+  const { formik } = useCategory()
+  return (
+    <form className="flex flex-col gap-6 w-full" onSubmit={formik.handleSubmit}>
+      <div className="flex flex-col space-y-2">
+        <FormInput
+          value={formik.values.name}
+          placeholder="Hospitality"
+          type="text"
+          label="Name"
+          name="name"
+        />
+      </div>
+      <Button>Save</Button>
+    </form>
+  );
+}
+
+export default CategoryForm

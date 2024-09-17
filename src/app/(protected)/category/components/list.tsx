@@ -5,7 +5,7 @@ import { categoryStore } from '../store'
 import Item from './list.item'
 
 export default function CategoryList() {
-    const { categories, setSelectedId, selectedId, removeCategory } = categoryStore()
+    const { categories, setSelectedId, selectedId  } = categoryStore()
 
     if (selectedId) {
         return <div className='space-y-5'>

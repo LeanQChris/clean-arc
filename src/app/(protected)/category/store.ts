@@ -7,7 +7,9 @@ type ICategoryStore = {
     setCataegories: (categories: ICategoryDTO[]) => void,
     selectedId: string | null,
     setSelectedId: (id: string | null) => void,
-    removeCategory: (id: string) => void
+    removeCategory: (id: string) => void,
+    toEditData: ICategoryDTO | null,
+    setToEditData: (toEditData: null | ICategoryDTO) => void
 }
 
 export const categoryStore = create<ICategoryStore>((set) => ({
@@ -24,4 +26,6 @@ export const categoryStore = create<ICategoryStore>((set) => ({
     },
     selectedId: null,
     setSelectedId: (id: string | null) => set({ selectedId: id }),
+    toEditData: null,
+    setToEditData: (toEditData: null | ICategoryDTO) => set({ toEditData })
 }))
