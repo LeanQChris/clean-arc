@@ -7,16 +7,16 @@ import { categoryStore } from "../store";
 
 const CategoryForm = () => {
   const { formik } = useCategory()
-  const { categories, toEditData } = categoryStore()
+  const { toEditData } = categoryStore()
 
-  const parentDropdonn = React.useMemo(() => {
-    return categories.map((category) => {
-      return {
-        label: category.name,
-        value: category.id
-      }
-    })
-  }, [categories])
+  // const parentDropdonn = React.useMemo(() => {
+  //   return categories.map((category) => {
+  //     return {
+  //       label: category.name,
+  //       value: category.id
+  //     }
+  //   })
+  // }, [categories])
 
   return (
     <form className="flex flex-col gap-6 w-full" onSubmit={formik.handleSubmit}>

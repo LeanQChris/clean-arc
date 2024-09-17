@@ -1,8 +1,8 @@
 import React from 'react'
-import { Label } from '../label'
+import { Label } from '../../label'
 import { Input } from './base'
-import { FormField } from './interface'
-import ErrorMessage from './error'
+import { FormField } from '../interface'
+import ErrorMessage from '../error'
 
 export default function FormInput(props: FormField) {
     return (
