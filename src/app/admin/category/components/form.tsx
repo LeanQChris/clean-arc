@@ -29,7 +29,7 @@ const CategoryForm = () => {
           name="name"
         />
       </div>
-      <Button>{toEditData ? "Update" : "Save"}</Button>
+      <Button variant={"outline"} className="rounded">{toEditData ? "Update" : "Save"}</Button>
     </form>
   );
 }
